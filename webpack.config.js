@@ -1,6 +1,7 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/Index.js',
@@ -20,6 +21,7 @@ module.exports = {
         hot: true
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new htmlWebpackPlugin({template: './src/index.html'}),
         new webpack.HotModuleReplacementPlugin()
     ]
